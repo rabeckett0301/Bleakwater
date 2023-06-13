@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5a2efc51594704e927f5e23ecdb26d, type: 3}
+  m_Name: Elven Bow
+  m_EditorClassIdentifier: 
+  Type: 0
+  Name: Elven Bow
+  Description: An elegant ranged weapon that was once a gift from the Elvish kingdoms.
+  Value: 35
