@@ -9,20 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 59dd2d6b9fcee2d4785dd9fed7596542
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/PrScene_01.unity
-    guid: e0bdb508088ce8a43b7f5e2460ac766a
+    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 1.unity
+    guid: a481144732af01040897d395287599c8
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/PrScene_02.unity
-    guid: 227814a38889c5840a1d0eafe88a3834
+    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 2.unity
+    guid: bdf713f533c77474ba73d6f095357c20
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/PrScene_04.unity
-    guid: 3f09d66d267177243aa241438240630b
+    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 3.unity
+    guid: 828b8af96c5b9854492d7f3c51f82af0
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/PrScene_03.unity
-    guid: 359c81b2c614e1e4f9ae157c2715f0b2
+    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 4.unity
+    guid: f5b16039fa6099048bed9e1195adb090
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/PrScene_05.unity
-    guid: 91aea07cc23be8e43a0c326730eb1d78
+    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 5.unity
+    guid: 6aeedb48b34197a468aa607cf8758ff4
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 3ed20bb2f9a6c1648acdc7ddd4063870

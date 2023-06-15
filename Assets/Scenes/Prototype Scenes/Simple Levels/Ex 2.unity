@@ -3088,7 +3088,7 @@ PrefabInstance:
       objectReference: {fileID: 3726350763326130224}
     - target: {fileID: 1977306356240898381, guid: 26019c40c19243a45bf3c0bf29a0812c, type: 3}
       propertyPath: LevelAP
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1977306356240898383, guid: 26019c40c19243a45bf3c0bf29a0812c, type: 3}
       propertyPath: StateText
