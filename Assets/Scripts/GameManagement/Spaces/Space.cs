@@ -16,7 +16,7 @@ public class Space: MonoBehaviour
 
     private void Awake()
     {
-        GM = GameObject.Find("/GameManagerObject").GetComponent<GameManager>();
+        GM = GameObject.Find("GameManagerObject").GetComponent<GameManager>();
     }
 
     void Start()
