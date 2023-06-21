@@ -742,6 +742,10 @@ PrefabInstance:
       propertyPath: ThisSpaceType
       value: 
       objectReference: {fileID: 11400000, guid: 809963b2227c724468a09de3ed97d71b, type: 2}
+    - target: {fileID: 8508636751499891146, guid: 0ed3c4777e670044f9db848cd8012539, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8508636751499891148, guid: 0ed3c4777e670044f9db848cd8012539, type: 3}
       propertyPath: m_Name
       value: Space (1)
