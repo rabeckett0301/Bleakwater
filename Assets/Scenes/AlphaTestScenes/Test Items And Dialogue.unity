@@ -582,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2074613722}
+    - target: {fileID: 986115656263866016, guid: 19b7d17c643bd7d4ab55860da67730a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b7d17c643bd7d4ab55860da67730a0, type: 3}
 --- !u!1 &711180811
@@ -1061,7 +1065,7 @@ MonoBehaviour:
   boardManagerSource: {fileID: 2003673426}
   startTile: {fileID: 887134333}
   ignoreMoveTileItem:
-    tileTags: 
+    tileTags: 01000000
 --- !u!136 &1831532095
 CapsuleCollider:
   m_ObjectHideFlags: 0

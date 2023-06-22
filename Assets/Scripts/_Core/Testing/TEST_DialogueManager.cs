@@ -2,6 +2,7 @@ using Bleakwater;
 using System;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
@@ -30,12 +31,13 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
         }
 
         string option = "Cool!";
-        DisplayOption(option);
+        DisplayOption(option, Close);
     }
 
-    public void DisplayOption(string text)
+    public void DisplayOption(string text, Action option)
     {
         this.transform.GetChild(1).gameObject.SetActive(true);
+        this.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(option.Invoke);
         this.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = text;
 
     }
