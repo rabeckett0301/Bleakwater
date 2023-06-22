@@ -483,6 +483,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &396483136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 986115654330403559, guid: 19b7d17c643bd7d4ab55860da67730a0, type: 3}
+  m_PrefabInstance: {fileID: 651688395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &651688395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1189,6 +1194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e1fd32e30c39b4b98e81391c91578c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueGO: {fileID: 396483136}
 --- !u!4 &2003673429
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine;
     [RequireComponent(typeof(ITileGraph))]
     public class BoardManager : MonoBehaviour, IBoardManager
     {
+        [SerializeField]
+        private GameObject dialogueGO;
         private ITileGraph _tileGraph;
 
         private IDialogueManager _dialogueManager;
@@ -14,9 +16,11 @@ using UnityEngine;
         private IPawnTracker<IViewport> _viewportTracker = new PawnTracker<IViewport>();
 
 
+
         private void Awake()
         {
             _tileGraph = GetComponent<ITileGraph>();
+            _dialogueManager = dialogueGO.GetComponent<IDialogueManager>();
         }
 
         public ITileGraph GetTileGraph()
