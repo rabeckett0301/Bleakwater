@@ -9,28 +9,58 @@ namespace Bleakwater
     public class TestCharacter : MonoBehaviour, ICharacter, IControlTarget
     {
 
-        IInventory inventory = new Inventory();
 
-        [SerializeField]
-        TileGraph tileGraph;
+        [SerializeField] 
+        GameObject boardManagerSource;
+        IBoardManager boardManager;
+        ITileGraph tileGraph;
 
         [SerializeField]
         Tile startTile;
-        ITile currentTile;
+        ITile targetTile;
+
+        IInventory inventory = new Inventory();
+        [SerializeField]
+        TestIgnoreMoveTileItem ignoreMoveTileItem;
         private void Awake()
         {
-            currentTile = startTile;
+            inventory.AddItem(ignoreMoveTileItem);
+            boardManager = boardManagerSource.GetComponent<IBoardManager>();
+            tileGraph = boardManager.GetTileGraph();
+
+            boardManager.GetCharacterTracker().AddPawn(startTile,this);
         }
         bool moving = false;
         private void Update()
         {
+            UpdateCharacterTile();
+            MoveToTargetTile();
+        }
 
+        private void UpdateCharacterTile()
+        {
+            ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
+            if (currentTile != targetTile && moving == false)
+            {
+                transform.position = currentTile.GetTransform().position + Vector3.up * 1.5f;
+                targetTile = currentTile;
+            }
+        }
+
+        private void MoveToTargetTile()
+        {
+            if (moving == false) return;
             float speed = 25f;
-            Vector3 moveDir = (currentTile.GetTransform().position + Vector3.up * 1.5f) - transform.position;
+            ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
+             
+            Vector3 moveDir = (targetTile.GetTransform().position + Vector3.up * 1.5f) - transform.position;
             if (moveDir.magnitude < Time.deltaTime * speed)
             {
                 moving = false;
                 transform.Translate(moveDir);
+                boardManager.GetCharacterTracker().MovePawn(this, targetTile);
+                inventory.Activate(targetTile);
+
             }
             else
             {
@@ -38,6 +68,7 @@ namespace Bleakwater
                 transform.Translate(moveDir);
             }
         }
+
         public void ActivateItem(ITile tile)
         {
             throw new System.NotImplementedException();
@@ -60,14 +91,14 @@ namespace Bleakwater
 
         public void Move(ITile targetTile)
         {
-            if (moving) return;
+            if (moving || targetTile == this.targetTile) return;
             moving = true;
             Debug.Log("Tile Selected");
-            List<ITile> path = tileGraph.GetPathToTile(currentTile, targetTile);
+            List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
 
             if (path != null && path.Count > 0)
             {
-                currentTile = path[0];
+                this.targetTile = path[0];
             }
         }
     }

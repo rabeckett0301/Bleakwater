@@ -6,12 +6,11 @@ namespace Bleakwater
     
     public interface ITile
     {
+        public IEnumerable<TileTag> GetTags();
         public Transform GetTransform();
-        public IBoardManager GetBoardManager();
-
         public void Show();
         public void Hide();
-        public ITileType GetTileData();
+        public void Activate();
     }
-    public enum TileTag { LOSBlocker }
+    public enum TileTag { LOSBlocker, Move }
 }

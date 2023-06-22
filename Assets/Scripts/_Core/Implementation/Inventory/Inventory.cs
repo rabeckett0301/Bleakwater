@@ -6,12 +6,37 @@ using UnityEngine;
 
 public class Inventory : IInventory
 {
+    List<IItem> items= new();
+    public void Activate(ITile tile)
+    {
+        bool contains = false;
+        foreach(IItem item in items)
+        {
+            if (typeof(ITileItem).IsAssignableFrom(item.GetType()))
+            {
+
+                ITileItem activatable = (ITileItem)item;
+                activatable.Activate(tile);
+                contains = true;
+            }
+        }
+        if (!contains)
+        {
+            tile.Activate();
+        }
+    }
+
     public void AddItem(IItem item)
+    {
+        items.Add(item);
+    }
+
+    public List<IItem> GetItems()
     {
         throw new NotImplementedException();
     }
 
-    public List<IItem> GetItems()
+    public ITileItem GetTileItem<ITile>()
     {
         throw new NotImplementedException();
     }

@@ -6,19 +6,14 @@ using UnityEngine;
 [System.Serializable]
 public class Tile : MonoBehaviour, ITile
 {
-    public IBoardManager GetBoardManager()
+    public void Activate()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Ding");
     }
 
     public IEnumerable<TileTag> GetTags()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public ITileType GetTileData()
-    {
-        throw new System.NotImplementedException();
+        return new List<TileTag>();
     }
 
     public Transform GetTransform()

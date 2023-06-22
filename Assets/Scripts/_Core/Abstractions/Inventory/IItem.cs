@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,8 @@ namespace Bleakwater
     }
     public interface ITileItem : IItem
     {
-
-        public ITileType GetTileType();
-        public void Activate(ITileType tileType);
+        public IEnumerable<TileTag> GetTileTags();
+        public void Activate(ITile targetTile);
     }
     public interface IUseableItem : IItem
     {
