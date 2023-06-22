@@ -13,7 +13,15 @@ public class TEST_ItemTile : MonoBehaviour, ITile
 
     public void Activate()
     {
-        IEnumerable <ICharacter> Characters = BoardManager.GetCharacterTracker().GetPawnsByTile(this);
+        BoardManager.GetDialogueManager().Write("New item found!");
+        BoardManager.GetDialogueManager().DisplayOption("Take", AddItemToCharacter);
+    }
+
+    private void AddItemToCharacter()
+    {
+        BoardManager.GetDialogueManager().Close();
+
+        IEnumerable<ICharacter> Characters = BoardManager.GetCharacterTracker().GetPawnsByTile(this);
 
         foreach (ICharacter character in Characters)
         {

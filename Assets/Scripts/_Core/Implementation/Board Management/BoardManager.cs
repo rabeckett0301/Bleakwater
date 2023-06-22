@@ -38,7 +38,7 @@ using UnityEngine;
 
         public IDialogueManager GetDialogueManager()
         {
-            throw new System.NotImplementedException();
+            return _dialogueManager;
         }
 
     }

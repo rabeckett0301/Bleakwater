@@ -8,7 +8,7 @@ namespace Bleakwater
 {
     public class TestCharacter : MonoBehaviour, ICharacter, IControlTarget
     {
-
+        public int ActionPoints;
 
         [SerializeField] 
         GameObject boardManagerSource;
@@ -47,22 +47,26 @@ namespace Bleakwater
         private void MoveToTargetTile()
         {
             if (moving == false) return;
+            List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
             float speed = 25f;
             ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
-             
-            Vector3 moveDir = (targetTile.GetTransform().position + Vector3.up * 1.5f) - transform.position;
-            if (moveDir.magnitude < Time.deltaTime * speed)
+            
+            if (path.Count > 0)
             {
-                moving = false;
-                transform.Translate(moveDir);
-                boardManager.GetCharacterTracker().MovePawn(this, targetTile);
-                inventory.Activate(targetTile);
+                Vector3 moveDir = (path[0].GetTransform().position + Vector3.up * 1.5f) - transform.position;
+                if (moveDir.magnitude < Time.deltaTime * speed)
+                {
+                    moving = false;
+                    transform.Translate(moveDir);
+                    boardManager.GetCharacterTracker().MovePawn(this, path[0]);
+                    inventory.Activate(targetTile);
 
-            }
-            else
-            {
-                moveDir = moveDir.normalized * speed * Time.deltaTime;
-                transform.Translate(moveDir);
+                }
+                else
+                {
+                    moveDir = moveDir.normalized * speed * Time.deltaTime;
+                    transform.Translate(moveDir);
+                }
             }
         }
 
@@ -88,16 +92,20 @@ namespace Bleakwater
 
         public void Move(ITile targetTile)
         {
-            if (moving || targetTile == this.targetTile) return;
-            moving = true;
-            Debug.Log("Tile Selected");
-            Debug.Log(this.targetTile);
-            Debug.Log(targetTile);
-            List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
-
-            if (path != null && path.Count > 0)
+            if (ActionPoints > 0)
             {
-                this.targetTile = path[0];
+                if (moving || targetTile == this.targetTile) return;
+                moving = true;
+                Debug.Log("Tile Selected");
+                Debug.Log(this.targetTile);
+                Debug.Log(targetTile);
+                List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
+
+                if (path != null && path.Count > 0)
+                {
+                    this.targetTile = targetTile;
+                    ActionPoints--;
+                }
             }
         }
     }

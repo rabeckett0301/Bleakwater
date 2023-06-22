@@ -12,32 +12,39 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
     private void Start()
     {
         Text = this.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        this.transform.GetChild(1).gameObject.SetActive(false);
-
-        string callText = "This is some test text that's pretty neat!";
-        Write(callText);
+        this.gameObject.SetActive(false);
     }
 
     public void Write(string text)
     {
         this.gameObject.SetActive(true);
+        StartCoroutine(StringBuilder(text));
+    }
 
+    public IEnumerator StringBuilder(string text)
+    {
         string currentText = "";
 
-        for(int i = 0; i < text.Length; i++)
+        for (int i = 0; i < text.Length; i++)
         {
             currentText += text[i];
             Text.text = currentText;
+            yield return new WaitForSeconds(0.05f);
         }
 
-        string option = "Cool!";
-        DisplayOption(option, Close);
+        yield return null;
+    }
+
+    public void AddOneShotListener(Action option)
+    {
+        this.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+        option.Invoke();
     }
 
     public void DisplayOption(string text, Action option)
     {
         this.transform.GetChild(1).gameObject.SetActive(true);
-        this.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(option.Invoke);
+        this.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => AddOneShotListener(option));
         this.transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = text;
 
     }
