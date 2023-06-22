@@ -10,7 +10,8 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
 
     private void Start()
     {
-        Text = this.GetComponent<TMP_Text>();
+        Text = this.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
+        this.transform.GetChild(1).gameObject.SetActive(false);
         Open();
     }
 
@@ -31,11 +32,14 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
             currentText += text[i];
             Text.text = currentText;
         }
+
+        string option = "Cool!";
+        DisplayOption(option);
     }
 
-    public void DisplayOption(string text, Action option)
+    public void DisplayOption(string text)
     {
-        
+        this.transform.GetChild(1).gameObject.SetActive(true);
 
     }
 
