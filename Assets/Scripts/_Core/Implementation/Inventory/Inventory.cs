@@ -10,15 +10,20 @@ public class Inventory : IInventory
     public void Activate(ITile tile)
     {
         bool contains = false;
-        foreach(IItem item in items)
+        List<ITileItem> activatableItems = new List<ITileItem>();
+        foreach (IItem item in items)
         {
+
             if (typeof(ITileItem).IsAssignableFrom(item.GetType()))
             {
 
-                ITileItem activatable = (ITileItem)item;
-                activatable.Activate(tile);
+                activatableItems.Add( (ITileItem)item);
                 contains = true;
             }
+        }
+        foreach (ITileItem tileItem in activatableItems)
+        {
+            tileItem.Activate(tile);
         }
         if (!contains)
         {

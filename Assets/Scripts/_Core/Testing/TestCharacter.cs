@@ -20,15 +20,7 @@ namespace Bleakwater
         ITile targetTile;
 
         IInventory inventory = new Inventory();
-        [SerializeField]
-        TestIgnoreMoveTileItem ignoreMoveTileItem;
-        private void Awake()
-        {
-            inventory.AddItem(ignoreMoveTileItem);
 
-
-
-        }
         private void Start()
         {
             boardManager = boardManagerSource.GetComponent<IBoardManager>();
