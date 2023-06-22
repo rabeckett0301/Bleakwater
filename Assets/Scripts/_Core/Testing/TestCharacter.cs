@@ -25,10 +25,15 @@ namespace Bleakwater
         private void Awake()
         {
             inventory.AddItem(ignoreMoveTileItem);
+
+
+
+        }
+        private void Start()
+        {
             boardManager = boardManagerSource.GetComponent<IBoardManager>();
             tileGraph = boardManager.GetTileGraph();
-
-            boardManager.GetCharacterTracker().AddPawn(startTile,this);
+            boardManager.GetCharacterTracker().AddPawn(startTile, this);
         }
         bool moving = false;
         private void Update()
@@ -94,6 +99,8 @@ namespace Bleakwater
             if (moving || targetTile == this.targetTile) return;
             moving = true;
             Debug.Log("Tile Selected");
+            Debug.Log(this.targetTile);
+            Debug.Log(targetTile);
             List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
 
             if (path != null && path.Count > 0)
