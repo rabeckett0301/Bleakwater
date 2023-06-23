@@ -29,7 +29,7 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
         {
             currentText += text[i];
             Text.text = currentText;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         yield return null;

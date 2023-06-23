@@ -438,6 +438,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardManager: {fileID: 2003673428}
+  TextPrompts:
+  - Welcome to Bleakwater...
+  - Your goal lies at the end of the path.
+  - Watch out for the bridge, it'll halt your progress...
+  - There should be an ITEM somewhere...
+  ButtonPrompts:
+  - Listen.
+  - Listen.
+  - Listen.
+  - Understood.
 --- !u!1 &383563604
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 986115654330403558, guid: 19b7d17c643bd7d4ab55860da67730a0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -608.9999
+      objectReference: {fileID: 0}
     - target: {fileID: 986115655805392773, guid: 19b7d17c643bd7d4ab55860da67730a0, type: 3}
       propertyPath: m_Name
       value: Canvas

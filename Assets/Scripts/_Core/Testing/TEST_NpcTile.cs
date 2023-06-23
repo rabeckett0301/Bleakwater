@@ -8,16 +8,30 @@ public class TEST_NpcTile : MonoBehaviour, ITile
     [SerializeField]
     BoardManager BoardManager;
 
+    public List<string> TextPrompts = new List<string>();
+    public List<string> ButtonPrompts = new List<string>();
+
+    int CurrentIndex;
+
     public void Activate()
     {
-        BoardManager.GetDialogueManager().Write("Welcome to Bleakwater...");
-        BoardManager.GetDialogueManager().DisplayOption("Listen", Respond);
+        Debug.Log("CURRENT INDEX: " + CurrentIndex);
+        BoardManager.GetDialogueManager().Write(TextPrompts[CurrentIndex]);
+        Respond();
     }
 
     public void Respond()
     {
-        BoardManager.GetDialogueManager().Write("Your goal is at the end of the path.");
-        BoardManager.GetDialogueManager().DisplayOption("Thanks.", EndDialogue);
+        if (CurrentIndex < TextPrompts.Count - 1)
+        {
+            BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], Activate);
+            CurrentIndex++;
+        }
+        else
+        {
+            BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], EndDialogue);
+        }
+
     }
 
     public void EndDialogue()
