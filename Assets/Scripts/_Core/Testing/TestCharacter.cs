@@ -114,7 +114,6 @@ namespace Bleakwater
                 if (path != null && path.Count > 0)
                 {
                     this.targetTile = targetTile;
-
                 }
             }
         }

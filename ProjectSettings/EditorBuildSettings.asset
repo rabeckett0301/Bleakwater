@@ -9,20 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 59dd2d6b9fcee2d4785dd9fed7596542
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 1.unity
-    guid: a481144732af01040897d395287599c8
+    path: Assets/Scenes/AlphaTestScenes/Test Items And Dialogue.unity
+    guid: 84be6ecae6e21934b9d6ceb4586661a3
   - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 2.unity
-    guid: bdf713f533c77474ba73d6f095357c20
-  - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 3.unity
-    guid: 828b8af96c5b9854492d7f3c51f82af0
-  - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 4.unity
-    guid: f5b16039fa6099048bed9e1195adb090
-  - enabled: 1
-    path: Assets/Scenes/Prototype Scenes/Simple Levels/Ex 5.unity
-    guid: 6aeedb48b34197a468aa607cf8758ff4
+    path: Assets/Scenes/AlphaTestScenes/Test Items And Dialogue 02.unity
+    guid: 66ae7a0d41126b641bc3772b26f2977e
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: 3ed20bb2f9a6c1648acdc7ddd4063870

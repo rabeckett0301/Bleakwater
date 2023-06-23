@@ -30,7 +30,7 @@ public class TEST_NpcTile : MonoBehaviour, ITile
         else
         {
             BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], EndDialogue);
-        }
+        } 
     }
 
     public void EndDialogue()
