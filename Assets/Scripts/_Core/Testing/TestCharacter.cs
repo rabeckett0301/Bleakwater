@@ -47,19 +47,25 @@ namespace Bleakwater
         private void MoveToTargetTile()
         {
             if (moving == false) return;
-            List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
-            float speed = 25f;
             ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
+            List<ITile> path = tileGraph.GetPathToTile(currentTile, targetTile);
+            float speed = 25f;
+ 
             
             if (path.Count > 0)
             {
                 Vector3 moveDir = (path[0].GetTransform().position + Vector3.up * 1.5f) - transform.position;
                 if (moveDir.magnitude < Time.deltaTime * speed)
                 {
-                    moving = false;
+                    ActionPoints--;
                     transform.Translate(moveDir);
                     boardManager.GetCharacterTracker().MovePawn(this, path[0]);
-                    inventory.Activate(targetTile);
+                    inventory.Activate(path[0]);
+                    currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
+                    if (currentTile != path[0]||ActionPoints<=0)
+                    {
+                        moving = false;
+                    }
 
                 }
                 else
@@ -67,6 +73,10 @@ namespace Bleakwater
                     moveDir = moveDir.normalized * speed * Time.deltaTime;
                     transform.Translate(moveDir);
                 }
+            }
+            else
+            {
+                moving = false;
             }
         }
 
@@ -104,7 +114,7 @@ namespace Bleakwater
                 if (path != null && path.Count > 0)
                 {
                     this.targetTile = targetTile;
-                    ActionPoints--;
+
                 }
             }
         }

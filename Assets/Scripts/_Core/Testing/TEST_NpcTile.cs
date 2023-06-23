@@ -28,7 +28,7 @@ public class TEST_NpcTile : MonoBehaviour, ITile
 
     public IEnumerable<TileTag> GetTags()
     {
-        throw new System.NotImplementedException();
+        return new List<TileTag>(); 
     }
 
     public Transform GetTransform()

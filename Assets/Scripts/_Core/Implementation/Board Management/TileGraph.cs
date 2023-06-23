@@ -23,7 +23,7 @@ namespace Bleakwater {
         {
             ITile[] tiles = GetComponentsInChildren<ITile>();
             foreach (ITile tile in tiles)
-            {
+            { 
                 TileToNodeMap.Add(tile, new Node(tile));
             }
             foreach (ITile tile in tiles)
