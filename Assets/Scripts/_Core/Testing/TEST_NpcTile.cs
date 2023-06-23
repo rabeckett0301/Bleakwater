@@ -31,7 +31,6 @@ public class TEST_NpcTile : MonoBehaviour, ITile
         {
             BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], EndDialogue);
         }
-
     }
 
     public void EndDialogue()
