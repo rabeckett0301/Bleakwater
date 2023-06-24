@@ -538,7 +538,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 546152012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34f54a68f4f5654aa2a424a74f79bec, type: 3}
+  m_Script: {fileID: 11500000, guid: a0fa055f048d9ae48800f502651b799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &546152015
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 597004989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34f54a68f4f5654aa2a424a74f79bec, type: 3}
+  m_Script: {fileID: 11500000, guid: a0fa055f048d9ae48800f502651b799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &597004991
@@ -933,7 +933,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 887134327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34f54a68f4f5654aa2a424a74f79bec, type: 3}
+  m_Script: {fileID: 11500000, guid: a0fa055f048d9ae48800f502651b799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1285926762
@@ -1302,9 +1302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionPoints: 11
-  dialogueManager: {fileID: 3354863563691360800}
-  boardManagerSource: {fileID: 2003673426}
-  startTile: {fileID: 597004990}
+  _dialogueManager: {fileID: 3354863563691360800}
+  _boardManagerSource: {fileID: 2003673426}
+  _startTile: {fileID: 597004990}
 --- !u!136 &1831532095
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2113784400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34f54a68f4f5654aa2a424a74f79bec, type: 3}
+  m_Script: {fileID: 11500000, guid: a0fa055f048d9ae48800f502651b799a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3354863563691360800 stripped

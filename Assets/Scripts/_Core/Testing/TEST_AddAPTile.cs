@@ -7,19 +7,20 @@ public class TEST_AddAPTile : PawnSpecificTile<TestCharacter>
 {
     private bool HasTaken = false;
 
-    protected override void Activate(TestCharacter testCharacter)
+    protected override bool Activate(TestCharacter testCharacter)
     {
         if (!HasTaken)
         {
             testCharacter.ActionPoints += 2;
             HasTaken = true;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-    protected override void ActivateOnNonSpecificPawn(IPawn pawn)
-    {
-        throw new System.NotImplementedException();
-    }
 
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();

@@ -14,13 +14,14 @@ public class TEST_NpcTile : PawnSpecificTile<ICharacter>
 
     int CurrentIndex;
 
-    protected override void Activate(ICharacter character)
+    protected override bool Activate(ICharacter character)
     {
         Debug.Log("CURRENT INDEX: " + CurrentIndex);
         character.DialogueManager.Write(TextPrompts[CurrentIndex]);
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         Respond(character);
+        return true;
     }
 
     public void Respond(ICharacter character)

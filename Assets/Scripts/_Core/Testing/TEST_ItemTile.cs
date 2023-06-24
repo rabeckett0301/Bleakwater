@@ -11,16 +11,17 @@ public class TEST_ItemTile : PawnSpecificTile<ICharacter>
     [SerializeField]
     TestIgnoreMoveTileItem Loot;
 
-    protected override void Activate(ICharacter character)
+    protected override bool Activate(ICharacter character)
     {
         character.DialogueManager.Write("New item found!");
         character.DialogueManager.DisplayOption("Take",() => AddItemToCharacter(character));
+        return true;
     }
 
     private void AddItemToCharacter(ICharacter character)
     {
         character.DialogueManager.Close();
-        character.Inventory.AddItem(Loot);
+        character.TileItemInventory.AddItem(Loot);
     }
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();

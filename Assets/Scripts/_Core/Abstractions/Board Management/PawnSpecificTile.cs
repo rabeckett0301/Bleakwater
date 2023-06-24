@@ -10,23 +10,25 @@ namespace Bleakwater
         public abstract Transform Transform { get; }
         public abstract void Hide();
         public abstract void Show();
-        protected abstract void Activate(TPawn pawn);
 
-        public void Activate(IPawn pawn)
+        public bool Activate(IPawn user)
         {
-            if (pawn is TPawn)
+            if (user is TPawn)
             {
-                Activate((TPawn)pawn);
+                return Activate((TPawn)user);
             }
             else
             {
 
-                ActivateOnNonSpecificPawn(pawn);
+                return ActivateOnNonSpecificPawn(user);
             }
         }
-        protected virtual void ActivateOnNonSpecificPawn(IPawn pawn)
+        protected abstract bool Activate(TPawn user);
+
+        protected virtual bool ActivateOnNonSpecificPawn(IPawn user)
         {
             Debug.Log("Pawn is not of type " + typeof(TPawn).Name);
+            return false;
         }
 
 

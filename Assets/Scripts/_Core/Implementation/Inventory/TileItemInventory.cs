@@ -4,26 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : IInventory
+public class TileItemInventory: IInventory<ITileItem>
 {
-    List<IItem> items= new();
+    List<ITileItem> items= new();
     public void Activate(ITile tile, IPawn pawn)
     {
         bool contains = false;
-        List<ITileItem> activatableItems = new List<ITileItem>();
-        foreach (IItem item in items)
-        {
-
-            if (typeof(ITileItem).IsAssignableFrom(item.GetType()))
-            {
-
-                activatableItems.Add( (ITileItem)item);
-                contains = true;
-            }
-        }
-        foreach (ITileItem tileItem in activatableItems)
-        {
-            tileItem.Activate(tile, pawn);
+        foreach (ITileItem tileItem in items)
+        { 
+            contains = tileItem.Activate(tile, pawn);
         }
         if (!contains)
         {
@@ -31,12 +20,12 @@ public class Inventory : IInventory
         }
     }
 
-    public void AddItem(IItem item)
+    public void AddItem(ITileItem item)
     {
         items.Add(item);
     }
 
-    public List<IItem> GetItems()
+    public List<ITileItem> GetItems()
     {
         throw new NotImplementedException();
     }
@@ -46,12 +35,22 @@ public class Inventory : IInventory
         throw new NotImplementedException();
     }
 
-    public void RemoveItem(IItem item)
+    public void RemoveItem(ITileItem item)
     {
         throw new NotImplementedException();
     }
 
     public void Subscribe(Action OnInventoryUpdated)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SubscribeToItemAdded(Action<ITileItem> OnInventoryUpdated)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SubscribeToItemRemoved(Action<ITileItem> OnInventoryUpdated)
     {
         throw new NotImplementedException();
     }

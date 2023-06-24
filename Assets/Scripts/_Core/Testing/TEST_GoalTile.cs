@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class TEST_GoalTile : MonoBehaviour, ITile
 {
-    public void Activate(IPawn pawn)
+    public bool Activate(IPawn pawn)
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
+        return true;
     }
 
     public IEnumerable<TileTag> Tags => new List<TileTag>();

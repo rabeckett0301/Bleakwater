@@ -8,26 +8,38 @@ namespace Bleakwater
 {
     public class TestCharacter : MonoBehaviour, ICharacter, IControlTarget
     {
+        public IDialogueManager DialogueManager => _dialogueManager;
+
+        public IInventory<ITileItem> TileItemInventory => _tileItemInventory;
+
+        public IInventory<IUseableItem> UseableItemInventory => _useableItemInventory;
+
+        public IInventory<IKeyItem> KeyItemInventory => _keyItemInventory;
+
         public int ActionPoints;
         [SerializeField]
-        TEST_DialogueManager dialogueManager;
+        private TEST_DialogueManager _dialogueManager;
 
         [SerializeField] 
-        GameObject boardManagerSource;
-        IBoardManager boardManager;
-        ITileGraph tileGraph;
+        private GameObject _boardManagerSource;
+        private IBoardManager _boardManager;
+        private ITileGraph _tileGraph;
 
         [SerializeField]
-        Tile startTile;
-        ITile targetTile;
+        private BasicTile _startTile;
+        private ITile _targetTile;
 
-        IInventory inventory = new Inventory();
+        TileItemInventory _tileItemInventory = new TileItemInventory();
+        IInventory<IUseableItem> _useableItemInventory = new BasicInventory<IUseableItem>();
+        IInventory<IKeyItem> _keyItemInventory = new BasicInventory<IKeyItem>();
+
+
 
         private void Start()
         {
-            boardManager = boardManagerSource.GetComponent<IBoardManager>();
-            tileGraph = boardManager.GetTileGraph();
-            boardManager.GetCharacterTracker().AddPawn(startTile, this);
+            _boardManager = _boardManagerSource.GetComponent<IBoardManager>();
+            _tileGraph = _boardManager.GetTileGraph();
+            _boardManager.GetCharacterTracker().AddPawn(_startTile, this);
         }
         bool moving = false;
         private void Update()
@@ -38,19 +50,19 @@ namespace Bleakwater
 
         private void UpdateCharacterTile()
         {
-            ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
-            if (currentTile != targetTile && moving == false)
+            ITile currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
+            if (currentTile != _targetTile && moving == false)
             {
                 transform.position = currentTile.Transform.position + Vector3.up * 1.5f;
-                targetTile = currentTile;
+                _targetTile = currentTile;
             }
         }
 
         private void MoveToTargetTile()
         {
             if (moving == false) return;
-            ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
-            List<ITile> path = tileGraph.GetPathToTile(currentTile, targetTile);
+            ITile currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
+            List<ITile> path = _tileGraph.GetPathToTile(currentTile, _targetTile);
             float speed = 25f;
  
             
@@ -61,9 +73,9 @@ namespace Bleakwater
                 {
                     ActionPoints--;
                     transform.Translate(moveDir);
-                    boardManager.GetCharacterTracker().MovePawn(this, path[0]);
-                    inventory.Activate(path[0], this);
-                    currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
+                    _boardManager.GetCharacterTracker().MovePawn(this, path[0]);
+                    _tileItemInventory.Activate(path[0], this);
+                    currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
                     if (currentTile != path[0]||ActionPoints<=0)
                     {
                         moving = false;
@@ -82,19 +94,8 @@ namespace Bleakwater
             }
         }
 
-        public void ActivateItem(ITile tile)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public void ActivateItem(IItem item)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public IInventory Inventory => inventory;
-
-        public IDialogueManager DialogueManager => dialogueManager;
 
         public GameObject GetModel()
         {
@@ -105,16 +106,16 @@ namespace Bleakwater
         {
             if (ActionPoints > 0)
             {
-                if (moving || targetTile == this.targetTile) return;
+                if (moving || targetTile == this._targetTile) return;
                 moving = true;
                 Debug.Log("Tile Selected");
-                Debug.Log(this.targetTile);
+                Debug.Log(this._targetTile);
                 Debug.Log(targetTile);
-                List<ITile> path = tileGraph.GetPathToTile(this.targetTile, targetTile);
+                List<ITile> path = _tileGraph.GetPathToTile(this._targetTile, targetTile);
 
                 if (path != null && path.Count > 0)
                 {
-                    this.targetTile = targetTile;
+                    this._targetTile = targetTile;
                 }
             }
         }

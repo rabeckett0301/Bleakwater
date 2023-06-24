@@ -11,17 +11,18 @@ namespace Bleakwater
         private List<TileTag> tileTags;
 
 
-        public void Activate(ITile targetTile, IPawn pawn)
+        public bool Activate(ITile targetTile, IPawn pawn)
         {
             HashSet<TileTag> tHash = new(tileTags);
             HashSet<TileTag> targetHash = new(targetTile.Tags);
             if(tHash.Overlaps(targetHash))
             {
                 Debug.Log("Overlap! do nothing");
+                return true;
             }
             else
             {
-                targetTile.Activate(pawn);
+                return false;
             }
 
            

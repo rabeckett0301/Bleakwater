@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Tile : MonoBehaviour, ITile
+public class BasicTile : MonoBehaviour, ITile
 {
-    public void Activate(IPawn pawn)
+    public bool Activate(IPawn pawn)
     {
+        return false;
     }
 
     public IEnumerable<TileTag> Tags => new List<TileTag>();

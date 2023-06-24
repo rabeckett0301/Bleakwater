@@ -11,7 +11,7 @@ namespace Bleakwater
 
         public void Show();
         public void Hide();
-        public void Activate(IPawn pawn);
+        public bool Activate(IPawn pawn);
     }
     public enum TileTag { LOSBlocker, Move }
 }

@@ -11,13 +11,14 @@ namespace Bleakwater
         GameObject targetTile;
         [SerializeField]
         List<TileTag> tileTags;
-        protected override void Activate(TestCharacter character)
+        protected override bool Activate(TestCharacter character)
         {
             IPawnTracker<ICharacter> ct = GetComponentInParent<IBoardManager>().GetCharacterTracker();
 
             character.ActionPoints++;
 
             ct.MovePawn(character, targetTile.GetComponent<ITile>());
+            return true;
 
         }
 
