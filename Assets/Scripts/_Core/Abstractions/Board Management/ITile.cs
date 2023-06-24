@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Bleakwater
 {
-    public interface ITile
+    public interface ITile 
     {
         public IEnumerable<TileTag> Tags { get; }
 
@@ -11,7 +11,7 @@ namespace Bleakwater
 
         public void Show();
         public void Hide();
-        public void Activate();
+        public void Activate(IPawn pawn);
     }
     public enum TileTag { LOSBlocker, Move }
 }

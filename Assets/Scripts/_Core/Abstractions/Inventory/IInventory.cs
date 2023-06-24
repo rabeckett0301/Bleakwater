@@ -8,7 +8,7 @@ namespace Bleakwater
     public interface IInventory//make a different inventory for each type of item
     {
 
-        public void Activate(ITile tile);
+        public void Activate(ITile tile,IPawn pawn);
         public List<IItem> GetItems();
         public ITileItem GetTileItem<ITile>();
         public void AddItem(IItem item);

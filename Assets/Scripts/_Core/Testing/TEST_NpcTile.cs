@@ -2,8 +2,9 @@ using Bleakwater;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-public class TEST_NpcTile : MonoBehaviour, ITile
+public class TEST_NpcTile : PawnSpecificTile<ICharacter>
 {
     [SerializeField]
     BoardManager BoardManager;
@@ -13,44 +14,44 @@ public class TEST_NpcTile : MonoBehaviour, ITile
 
     int CurrentIndex;
 
-    public void Activate()
+    protected override void Activate(ICharacter character)
     {
         Debug.Log("CURRENT INDEX: " + CurrentIndex);
-        BoardManager.GetDialogueManager().Write(TextPrompts[CurrentIndex]);
+        character.DialogueManager.Write(TextPrompts[CurrentIndex]);
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-        Respond();
+        Respond(character);
     }
 
-    public void Respond()
+    public void Respond(ICharacter character)
     {
         if (CurrentIndex < TextPrompts.Count - 1)
         {
-            BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], Activate);
+            character.DialogueManager.DisplayOption(ButtonPrompts[CurrentIndex],() => Activate(character));
             CurrentIndex++;
         }
         else
         {
-            BoardManager.GetDialogueManager().DisplayOption(ButtonPrompts[CurrentIndex], EndDialogue);
+            character.DialogueManager.DisplayOption(ButtonPrompts[CurrentIndex], () => EndDialogue(character));
         } 
     }
 
-    public void EndDialogue()
+    public void EndDialogue(ICharacter character)
     {
         Debug.Log("Ending talking");
-        BoardManager.GetDialogueManager().Close();
+        character.DialogueManager.Close();
     }
 
-    public IEnumerable<TileTag> Tags => new List<TileTag>();
+    public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
-    public Transform Transform => transform;
+    public override Transform Transform => transform;
 
-    public void Hide()
+    public override void Hide()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Show()
+    public override void Show()
     {
         throw new System.NotImplementedException();
     }

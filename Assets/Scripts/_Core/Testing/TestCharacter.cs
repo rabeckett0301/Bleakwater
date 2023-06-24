@@ -9,6 +9,8 @@ namespace Bleakwater
     public class TestCharacter : MonoBehaviour, ICharacter, IControlTarget
     {
         public int ActionPoints;
+        [SerializeField]
+        TEST_DialogueManager dialogueManager;
 
         [SerializeField] 
         GameObject boardManagerSource;
@@ -60,7 +62,7 @@ namespace Bleakwater
                     ActionPoints--;
                     transform.Translate(moveDir);
                     boardManager.GetCharacterTracker().MovePawn(this, path[0]);
-                    inventory.Activate(path[0]);
+                    inventory.Activate(path[0], this);
                     currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
                     if (currentTile != path[0]||ActionPoints<=0)
                     {
@@ -92,7 +94,7 @@ namespace Bleakwater
 
         public IInventory Inventory => inventory;
 
-        public IDialogueManager DialogueManager => throw new System.NotImplementedException();
+        public IDialogueManager DialogueManager => dialogueManager;
 
         public GameObject GetModel()
         {

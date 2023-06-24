@@ -13,7 +13,7 @@ namespace Bleakwater
     {
         public IEnumerable<TileTag> TileTags { get; }
 
-        public void Activate(ITile targetTile);
+        public void Activate(ITile targetTile, IPawn user);
     }
     public interface IUseableItem : IItem
     {

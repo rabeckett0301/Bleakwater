@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TEST_GoalTile : MonoBehaviour, ITile
 {
-    public void Activate()
+    public void Activate(IPawn pawn)
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
@@ -25,4 +25,5 @@ public class TEST_GoalTile : MonoBehaviour, ITile
     {
         throw new System.NotImplementedException();
     }
+
 }

@@ -12,6 +12,5 @@ namespace Bleakwater
         public IPawnTracker<IViewport> GetViewportTracker();
 
         public ITileGraph GetTileGraph();
-        public IDialogueManager GetDialogueManager();
     }
 }

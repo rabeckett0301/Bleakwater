@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TEST_ItemTile : MonoBehaviour, ITile
+public class TEST_ItemTile : PawnSpecificTile<ICharacter>
 {
     [SerializeField]
     BoardManager BoardManager;
@@ -11,34 +11,28 @@ public class TEST_ItemTile : MonoBehaviour, ITile
     [SerializeField]
     TestIgnoreMoveTileItem Loot;
 
-    public void Activate()
+    protected override void Activate(ICharacter character)
     {
-        BoardManager.GetDialogueManager().Write("New item found!");
-        BoardManager.GetDialogueManager().DisplayOption("Take", AddItemToCharacter);
+        character.DialogueManager.Write("New item found!");
+        character.DialogueManager.DisplayOption("Take",() => AddItemToCharacter(character));
     }
 
-    private void AddItemToCharacter()
+    private void AddItemToCharacter(ICharacter character)
     {
-        BoardManager.GetDialogueManager().Close();
-
-        IEnumerable<ICharacter> Characters = BoardManager.GetCharacterTracker().GetPawnsByTile(this);
-
-        foreach (ICharacter character in Characters)
-        {
-            character.            Inventory.AddItem(Loot);
-        }
+        character.DialogueManager.Close();
+        character.Inventory.AddItem(Loot);
     }
 
-    public IEnumerable<TileTag> Tags => new List<TileTag>();
+    public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
-    public Transform Transform => transform;
+    public override Transform Transform => transform;
 
-    public void Hide()
+    public override void Hide()
     {
         throw new System.NotImplementedException();
     }
 
-    public void Show()
+    public override void Show()
     {
         throw new System.NotImplementedException();
     }

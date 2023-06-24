@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Tile : MonoBehaviour, ITile
 {
-    public void Activate()
+    public void Activate(IPawn pawn)
     {
     }
 
@@ -23,4 +23,6 @@ public class Tile : MonoBehaviour, ITile
     {
         throw new System.NotImplementedException();
     }
+
+
 }

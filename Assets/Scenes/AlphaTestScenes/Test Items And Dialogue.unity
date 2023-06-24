@@ -233,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2603965e483fd4c86f496a564f00aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1831532094}
 --- !u!1 &133387887
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2603965e483fd4c86f496a564f00aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 1831532094}
 --- !u!65 &1285926765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1304,6 +1302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionPoints: 11
+  dialogueManager: {fileID: 3354863563691360800}
   boardManagerSource: {fileID: 2003673426}
   startTile: {fileID: 597004990}
 --- !u!136 &1831532095
@@ -1428,7 +1427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e1fd32e30c39b4b98e81391c91578c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueGO: {fileID: 3354863563691360798}
 --- !u!4 &2003673429
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,11 +1714,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34f54a68f4f5654aa2a424a74f79bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3354863563691360798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8982536653614341892, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+--- !u!114 &3354863563691360800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8982536653614341896, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
   m_PrefabInstance: {fileID: 5919629713233567002}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725d03fc11c98940925cd1221f3b892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5919629713233567002
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,37 +5,32 @@ using UnityEngine;
 
 namespace Bleakwater
 {
-    public class TestMoveTile : MonoBehaviour, ITile
+    public class TestMoveTile : PawnSpecificTile<TestCharacter>
     {
         [SerializeField]
         GameObject targetTile;
         [SerializeField]
         List<TileTag> tileTags;
-        public void Activate()
+        protected override void Activate(TestCharacter character)
         {
             IPawnTracker<ICharacter> ct = GetComponentInParent<IBoardManager>().GetCharacterTracker();
-            IEnumerable<ICharacter> pawnsOnTile = ct.GetPawnsByTile(this);
 
-            TestCharacter Character = GameObject.Find("CharacterTest").gameObject.GetComponent<TestCharacter>();
-            Character.ActionPoints++;
+            character.ActionPoints++;
 
-            foreach(ICharacter c in pawnsOnTile)
-            {
-                ct.MovePawn(c, targetTile.GetComponent<ITile>());
-                break;
-            }
+            ct.MovePawn(character, targetTile.GetComponent<ITile>());
+
         }
 
-        public IEnumerable<TileTag> Tags => tileTags;
+        public override IEnumerable<TileTag> Tags => tileTags;
 
-        public Transform Transform => transform;
+        public override Transform Transform => transform;
 
-        public void Hide()
+        public override void Hide()
         {
             throw new System.NotImplementedException();
         }
 
-        public void Show()
+        public override void Show()
         {
             throw new System.NotImplementedException();
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class Inventory : IInventory
 {
     List<IItem> items= new();
-    public void Activate(ITile tile)
+    public void Activate(ITile tile, IPawn pawn)
     {
         bool contains = false;
         List<ITileItem> activatableItems = new List<ITileItem>();
@@ -23,11 +23,11 @@ public class Inventory : IInventory
         }
         foreach (ITileItem tileItem in activatableItems)
         {
-            tileItem.Activate(tile);
+            tileItem.Activate(tile, pawn);
         }
         if (!contains)
         {
-            tile.Activate();
+            tile.Activate(pawn);
         }
     }
 

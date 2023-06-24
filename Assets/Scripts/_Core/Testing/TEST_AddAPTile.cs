@@ -3,33 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TEST_AddAPTile : MonoBehaviour, ITile
+public class TEST_AddAPTile : PawnSpecificTile<TestCharacter>
 {
-    [SerializeField]
-    TestCharacter Character;
-
     private bool HasTaken = false;
 
-    public void Activate()
+    protected override void Activate(TestCharacter testCharacter)
     {
-        if(!HasTaken)
+        if (!HasTaken)
         {
-            Character.ActionPoints += 2;
+            testCharacter.ActionPoints += 2;
             HasTaken = true;
         }
     }
 
-    public IEnumerable<TileTag> Tags => new List<TileTag>();
-
-    public Transform Transform => transform;
-
-    public void Hide()
+    protected override void ActivateOnNonSpecificPawn(IPawn pawn)
     {
         throw new System.NotImplementedException();
     }
 
-    public void Show()
+
+    public override IEnumerable<TileTag> Tags => new List<TileTag>();
+
+    public override Transform Transform => transform;
+
+    public override void Hide()
     {
         throw new System.NotImplementedException();
     }
+
+    public override void Show()
+    {
+        throw new System.NotImplementedException();
+    }
+
+
 }

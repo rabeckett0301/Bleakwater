@@ -6,6 +6,7 @@ namespace Bleakwater
 {
     public interface IDialogueManager
     {
+
         //writing should open, clear, and display the new text for the dialogue box.
         public void Write(string text);
 

@@ -1029,11 +1029,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5926179649971656556, guid: 185a60fed0c5ae24780741c73b0d085b, type: 3}
   m_PrefabInstance: {fileID: 1098955114}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1248477998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8982536653614341892, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-  m_PrefabInstance: {fileID: 2531511536408410504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1354029146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926179649971656556, guid: 185a60fed0c5ae24780741c73b0d085b, type: 3}
@@ -1329,6 +1324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionPoints: 20
+  dialogueManager: {fileID: 2531511536408410505}
   boardManagerSource: {fileID: 2003673426}
   startTile: {fileID: 292669482}
 --- !u!136 &1831532095
@@ -1458,7 +1454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e1fd32e30c39b4b98e81391c91578c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueGO: {fileID: 1248477998}
 --- !u!4 &2003673429
 Transform:
   m_ObjectHideFlags: 0
@@ -1801,3 +1796,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+--- !u!114 &2531511536408410505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8982536653614341896, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+  m_PrefabInstance: {fileID: 2531511536408410504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5725d03fc11c98940925cd1221f3b892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
