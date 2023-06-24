@@ -445,10 +445,10 @@ MonoBehaviour:
   - Watch out for the bridge, it'll halt your progress...
   - There should be an ITEM somewhere...
   ButtonPrompts:
-  - Listen.
-  - Listen.
-  - Listen.
-  - Understood.
+  - Listen
+  - Listen
+  - Listen
+  - Understood
 --- !u!1 &383563604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1728,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8982536654559396454, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
       propertyPath: m_Name
       value: Main UI
