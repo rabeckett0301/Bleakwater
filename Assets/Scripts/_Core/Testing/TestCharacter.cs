@@ -39,7 +39,7 @@ namespace Bleakwater
             ITile currentTile = boardManager.GetCharacterTracker().GetTileByPawn(this);
             if (currentTile != targetTile && moving == false)
             {
-                transform.position = currentTile.GetTransform().position + Vector3.up * 1.5f;
+                transform.position = currentTile.Transform.position + Vector3.up * 1.5f;
                 targetTile = currentTile;
             }
         }
@@ -54,7 +54,7 @@ namespace Bleakwater
             
             if (path.Count > 0)
             {
-                Vector3 moveDir = (path[0].GetTransform().position + Vector3.up * 1.5f) - transform.position;
+                Vector3 moveDir = (path[0].Transform.position + Vector3.up * 1.5f) - transform.position;
                 if (moveDir.magnitude < Time.deltaTime * speed)
                 {
                     ActionPoints--;
@@ -90,10 +90,9 @@ namespace Bleakwater
             throw new System.NotImplementedException();
         }
 
-        public IInventory GetInventory()
-        {
-            return inventory;
-        }
+        public IInventory Inventory => inventory;
+
+        public IDialogueManager DialogueManager => throw new System.NotImplementedException();
 
         public GameObject GetModel()
         {

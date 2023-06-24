@@ -22,7 +22,7 @@ namespace Testing
             {
                 foreach (ITile tile in path)
                 {
-                    tile.GetTransform().GetComponent<Renderer>().material.color = Color.green;
+                    tile.                    Transform.GetComponent<Renderer>().material.color = Color.green;
                     Debug.Log(tile);
                 }
             }

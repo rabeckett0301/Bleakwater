@@ -21,6 +21,7 @@ namespace Bleakwater {
 
         private void Init()
         {
+
             ITile[] tiles = GetComponentsInChildren<ITile>();
             foreach (ITile tile in tiles)
             { 
@@ -35,7 +36,7 @@ namespace Bleakwater {
 
         private List<Node> CheckCollisionForNeighbors(ITile tile)
         {
-            Vector3 position = tile.GetTransform().position;
+            Vector3 position = tile.Transform.position;
             int tileLayer = 1 << LayerMask.NameToLayer("Tile");
             Collider [] neighborCollider = Physics.OverlapSphere(position, _neighborRange, tileLayer);
             List<Node> neighbors = new List<Node>();    
@@ -160,12 +161,12 @@ namespace Bleakwater {
         private float Heuristic(Node goal, Node current)
         {
             //nodes can be at any angle, so we are starting with a distance heuristic
-            float distance = Vector3.Distance(goal.Tile.GetTransform().position, current.Tile.GetTransform().position);
+            float distance = Vector3.Distance(goal.Tile.Transform.position, current.Tile.Transform.position);
             return distance;
         }
         private float Distance(Node tile1, Node tile2)
         {
-            return Vector3.Distance(tile1.Tile.GetTransform().position,tile2.Tile.GetTransform().position);
+            return Vector3.Distance(tile1.Tile.Transform.position,tile2.Tile.Transform.position);
         }
         private List<ITile> ReconstructPath(Node current)
         {

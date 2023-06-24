@@ -13,9 +13,8 @@ namespace Bleakwater
 
         public void Activate(ITile targetTile)
         {
-            targetTile.GetTags();
             HashSet<TileTag> tHash = new(tileTags);
-            HashSet<TileTag> targetHash = new(targetTile.GetTags());
+            HashSet<TileTag> targetHash = new(targetTile.Tags);
             if(tHash.Overlaps(targetHash))
             {
                 Debug.Log("Overlap! do nothing");
@@ -28,14 +27,8 @@ namespace Bleakwater
            
         }
 
-        public GameObject GetIcon()
-        {
-            throw new System.NotImplementedException();
-        }
+        public GameObject Icon => throw new System.NotImplementedException();
 
-        public IEnumerable<TileTag> GetTileTags()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IEnumerable<TileTag> TileTags => throw new System.NotImplementedException();
     }
 }

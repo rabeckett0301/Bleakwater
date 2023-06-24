@@ -7,11 +7,12 @@ namespace Bleakwater
 {
     public interface IItem
     {
-        public GameObject GetIcon();
+        public GameObject Icon { get; }
     }
     public interface ITileItem : IItem
     {
-        public IEnumerable<TileTag> GetTileTags();
+        public IEnumerable<TileTag> TileTags { get; }
+
         public void Activate(ITile targetTile);
     }
     public interface IUseableItem : IItem

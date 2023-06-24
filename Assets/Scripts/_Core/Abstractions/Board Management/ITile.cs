@@ -6,8 +6,10 @@ namespace Bleakwater
     
     public interface ITile
     {
-        public IEnumerable<TileTag> GetTags();
-        public Transform GetTransform();
+        public IEnumerable<TileTag> Tags { get; }
+
+        public Transform Transform { get; }
+
         public void Show();
         public void Hide();
         public void Activate();

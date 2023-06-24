@@ -5,7 +5,8 @@ namespace Bleakwater
 {
     public interface ICharacter : IPawn
     {
-        public IInventory GetInventory();
+        public IDialogueManager DialogueManager { get; }
+        public IInventory Inventory { get; }
         public void ActivateItem(ITile tile);
         public void ActivateItem(IItem item);
     }

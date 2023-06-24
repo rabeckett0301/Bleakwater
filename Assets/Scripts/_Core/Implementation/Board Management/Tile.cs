@@ -8,18 +8,11 @@ public class Tile : MonoBehaviour, ITile
 {
     public void Activate()
     {
-        Debug.Log("Ding");
     }
 
-    public IEnumerable<TileTag> GetTags()
-    {
-        return new List<TileTag>();
-    }
+    public IEnumerable<TileTag> Tags => new List<TileTag>();
 
-    public Transform GetTransform()
-    {
-        return transform;
-    }
+    public Transform Transform => transform;
 
     public void Hide()
     {

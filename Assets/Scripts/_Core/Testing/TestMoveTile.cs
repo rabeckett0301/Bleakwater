@@ -22,15 +22,9 @@ namespace Bleakwater
             }
         }
 
-        public IEnumerable<TileTag> GetTags()
-        {
-            return tileTags;
-        }
+        public IEnumerable<TileTag> Tags => tileTags;
 
-        public Transform GetTransform()
-        {
-            return transform;
-        }
+        public Transform Transform => transform;
 
         public void Hide()
         {
