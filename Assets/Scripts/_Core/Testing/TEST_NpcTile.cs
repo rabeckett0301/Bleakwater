@@ -7,7 +7,7 @@ using UnityEngine.TextCore.Text;
 public class TEST_NpcTile : PawnSpecificTile<ICharacter>
 {
     [SerializeField]
-    BoardManager BoardManager;
+    GameMap BoardManager;
 
     public List<string> TextPrompts = new List<string>();
     public List<string> ButtonPrompts = new List<string>();

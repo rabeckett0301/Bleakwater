@@ -6,7 +6,7 @@ using UnityEngine;
 public class TEST_ItemTile : PawnSpecificTile<ICharacter>
 {
     [SerializeField]
-    BoardManager BoardManager;
+    GameMap BoardManager;
 
     [SerializeField]
     TestIgnoreMoveTileItem Loot;

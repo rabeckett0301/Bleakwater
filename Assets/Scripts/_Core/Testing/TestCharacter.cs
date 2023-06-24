@@ -20,9 +20,7 @@ namespace Bleakwater
         [SerializeField]
         private TEST_DialogueManager _dialogueManager;
 
-        [SerializeField] 
-        private GameObject _boardManagerSource;
-        private IBoardManager _boardManager;
+
         private ITileGraph _tileGraph;
 
         [SerializeField]
@@ -37,9 +35,9 @@ namespace Bleakwater
 
         private void Start()
         {
-            _boardManager = _boardManagerSource.GetComponent<IBoardManager>();
-            _tileGraph = _boardManager.GetTileGraph();
-            _boardManager.GetCharacterTracker().AddPawn(_startTile, this);
+
+            _tileGraph = ServiceLocator.GameMap.GetTileGraph();
+            ServiceLocator.GameMap.GetCharacterTracker().AddPawn(_startTile, this);
         }
         bool moving = false;
         private void Update()
@@ -50,7 +48,7 @@ namespace Bleakwater
 
         private void UpdateCharacterTile()
         {
-            ITile currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
+            ITile currentTile = ServiceLocator.GameMap.GetCharacterTracker().GetTileByPawn(this);
             if (currentTile != _targetTile && moving == false)
             {
                 transform.position = currentTile.Transform.position + Vector3.up * 1.5f;
@@ -61,7 +59,7 @@ namespace Bleakwater
         private void MoveToTargetTile()
         {
             if (moving == false) return;
-            ITile currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
+            ITile currentTile = ServiceLocator.GameMap.GetCharacterTracker().GetTileByPawn(this);
             List<ITile> path = _tileGraph.GetPathToTile(currentTile, _targetTile);
             float speed = 25f;
  
@@ -73,9 +71,9 @@ namespace Bleakwater
                 {
                     ActionPoints--;
                     transform.Translate(moveDir);
-                    _boardManager.GetCharacterTracker().MovePawn(this, path[0]);
+                    ServiceLocator.GameMap.GetCharacterTracker().MovePawn(this, path[0]);
                     _tileItemInventory.Activate(path[0], this);
-                    currentTile = _boardManager.GetCharacterTracker().GetTileByPawn(this);
+                    currentTile = ServiceLocator.GameMap.GetCharacterTracker().GetTileByPawn(this);
                     if (currentTile != path[0]||ActionPoints<=0)
                     {
                         moving = false;

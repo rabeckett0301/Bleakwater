@@ -13,7 +13,7 @@ namespace Bleakwater
         List<TileTag> tileTags;
         protected override bool Activate(TestCharacter character)
         {
-            IPawnTracker<ICharacter> ct = GetComponentInParent<IBoardManager>().GetCharacterTracker();
+            IPawnTracker<ICharacter> ct = GetComponentInParent<IGameMap>().GetCharacterTracker();
 
             character.ActionPoints++;
 

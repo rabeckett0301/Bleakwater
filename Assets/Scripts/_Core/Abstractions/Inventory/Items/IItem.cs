@@ -6,6 +6,6 @@ namespace Bleakwater
 {
     public interface IItem
     {
-        public GameObject Icon { get; }
+        public Sprite Icon { get; }
     }
 }

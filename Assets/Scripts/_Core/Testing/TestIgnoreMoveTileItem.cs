@@ -10,6 +10,11 @@ namespace Bleakwater
         [SerializeField]
         private List<TileTag> tileTags;
 
+        public GameObject Icon => throw new System.NotImplementedException();
+
+        public IEnumerable<TileTag> TileTags => throw new System.NotImplementedException();
+
+        Sprite IItem.Icon => throw new NotImplementedException();
 
         public bool Activate(ITile targetTile, IPawn pawn)
         {
@@ -28,8 +33,6 @@ namespace Bleakwater
            
         }
 
-        public GameObject Icon => throw new System.NotImplementedException();
 
-        public IEnumerable<TileTag> TileTags => throw new System.NotImplementedException();
     }
 }

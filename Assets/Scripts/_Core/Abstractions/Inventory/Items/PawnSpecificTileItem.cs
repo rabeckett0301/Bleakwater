@@ -7,7 +7,7 @@ public abstract class PawnSpecificTileItem<TPawn> : ITileItem where TPawn : IPaw
 {
     public IEnumerable<TileTag> TileTags => throw new System.NotImplementedException();
 
-    public GameObject Icon => throw new System.NotImplementedException();
+    Sprite IItem.Icon => throw new System.NotImplementedException();
 
     public bool Activate(ITile targetTile, IPawn user)
     {

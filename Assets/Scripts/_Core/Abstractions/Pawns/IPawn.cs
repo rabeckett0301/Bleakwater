@@ -11,7 +11,7 @@ namespace Bleakwater
 
     public interface IPawnInitializer
     {
-        public void SetBoardManager(IBoardManager manager);
+        public void SetBoardManager(IGameMap manager);
     }
     
     

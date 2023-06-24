@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class PawnSpecificUseableItem<TPawn> : IUseableItem where TPawn : IPawn
 {
-    public GameObject Icon => throw new System.NotImplementedException();
+    public abstract Sprite Icon { get; }
 
     public bool Activate(IPawn user)
     {

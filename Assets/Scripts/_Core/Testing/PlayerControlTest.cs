@@ -10,11 +10,11 @@ namespace Bleakwater
         ICharacter targetPawn;
         [SerializeField]
         GameObject targetBoardManager;
-        IBoardManager boardManager;
+        IGameMap boardManager;
         // Start is called before the first frame update
         void Start()
         {
-            boardManager = targetBoardManager.GetComponent<BoardManager>();
+            boardManager = targetBoardManager.GetComponent<GameMap>();
             targetPawn = controlTarget.GetComponent<ICharacter>();
             defaultControlTarget = currentControlTarget = controlTarget.GetComponent<IControlTarget>();
         }

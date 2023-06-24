@@ -4,7 +4,7 @@ using UnityEngine;
 
  namespace Bleakwater {
     [RequireComponent(typeof(ITileGraph))]
-    public class BoardManager : MonoBehaviour, IBoardManager
+    public class GameMap : MonoBehaviour, IGameMap
     {
         private ITileGraph _tileGraph;
         private IPawnTracker<ICharacter> _characterTracker = new PawnTracker<ICharacter>();

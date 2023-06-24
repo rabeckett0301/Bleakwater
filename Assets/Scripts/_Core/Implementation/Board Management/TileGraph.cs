@@ -26,6 +26,7 @@ namespace Bleakwater {
             foreach (ITile tile in tiles)
             { 
                 TileToNodeMap.Add(tile, new Node(tile));
+                tile.Transform.gameObject.layer = LayerMask.NameToLayer("Tile");//there is never a reason for a Tile not to be on the tile layer. It will break the tile graph.
             }
             foreach (ITile tile in tiles)
             {
