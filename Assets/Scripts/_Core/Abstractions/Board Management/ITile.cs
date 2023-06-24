@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Bleakwater
 {
-    
     public interface ITile
     {
         public IEnumerable<TileTag> GetTags();

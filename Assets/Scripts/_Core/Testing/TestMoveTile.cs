@@ -15,6 +15,10 @@ namespace Bleakwater
         {
             IPawnTracker<ICharacter> ct = GetComponentInParent<IBoardManager>().GetCharacterTracker();
             IEnumerable<ICharacter> pawnsOnTile = ct.GetPawnsByTile(this);
+
+            TestCharacter Character = GameObject.Find("CharacterTest").gameObject.GetComponent<TestCharacter>();
+            Character.ActionPoints++;
+
             foreach(ICharacter c in pawnsOnTile)
             {
                 ct.MovePawn(c, targetTile.GetComponent<ITile>());

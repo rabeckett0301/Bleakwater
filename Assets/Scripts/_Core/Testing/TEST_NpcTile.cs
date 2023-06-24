@@ -17,6 +17,8 @@ public class TEST_NpcTile : MonoBehaviour, ITile
     {
         Debug.Log("CURRENT INDEX: " + CurrentIndex);
         BoardManager.GetDialogueManager().Write(TextPrompts[CurrentIndex]);
+        GameObject myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
         Respond();
     }
 
