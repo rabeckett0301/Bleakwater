@@ -6,10 +6,7 @@ using UnityEngine;
 public class TEST_ItemTile : PawnSpecificTile<ICharacter>
 {
     [SerializeField]
-    GameMap BoardManager;
-
-    [SerializeField]
-    TestIgnoreMoveTileItem Loot;
+    private TestIgnoreMoveTileItem _loot;
 
     protected override bool Activate(ICharacter character)
     {
@@ -21,7 +18,7 @@ public class TEST_ItemTile : PawnSpecificTile<ICharacter>
     private void AddItemToCharacter(ICharacter character)
     {
         character.DialogueManager.Close();
-        character.TileItemInventory.AddItem(Loot);
+        character.TileItemInventory.AddItem(_loot);
     }
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();

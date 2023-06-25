@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class TileItemInventory: IInventory<ITileItem>
 {
-    List<ITileItem> items= new();
+    [SerializeField]
+    List<ITileItem> _items= new();
+
     public void Activate(ITile tile, IPawn pawn)
     {
         bool contains = false;
-        foreach (ITileItem tileItem in items)
+        foreach (ITileItem tileItem in _items)
         { 
             contains = tileItem.Activate(tile, pawn);
         }
@@ -22,12 +24,12 @@ public class TileItemInventory: IInventory<ITileItem>
 
     public void AddItem(ITileItem item)
     {
-        items.Add(item);
+        _items.Add(item);
     }
 
     public List<ITileItem> GetItems()
     {
-        throw new NotImplementedException();
+        return _items;
     }
 
     public ITileItem GetTileItem<ITile>()

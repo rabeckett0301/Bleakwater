@@ -13,5 +13,8 @@ namespace Bleakwater
         public void DisplayOption(string text, Action option);
 
         public void Close();
+
+        public void SubscribeOnOpen();
+        public void SubscribeOnClose();
     }
 }

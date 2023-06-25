@@ -14,4 +14,6 @@ namespace Bleakwater
         public void SubscribeToItemRemoved(Action<TItem> OnInventoryUpdated);
 
     }
+
+
 }

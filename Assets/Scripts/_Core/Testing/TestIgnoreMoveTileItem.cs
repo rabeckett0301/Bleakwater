@@ -8,17 +8,18 @@ namespace Bleakwater
     public class TestIgnoreMoveTileItem : ITileItem
     {
         [SerializeField]
-        private List<TileTag> tileTags;
+        private Sprite _icon;
+        [SerializeField]
+        private List<TileTag> _tileTags;
 
-        public GameObject Icon => throw new System.NotImplementedException();
 
+        public Sprite Icon => _icon;
         public IEnumerable<TileTag> TileTags => throw new System.NotImplementedException();
 
-        Sprite IItem.Icon => throw new NotImplementedException();
 
         public bool Activate(ITile targetTile, IPawn pawn)
         {
-            HashSet<TileTag> tHash = new(tileTags);
+            HashSet<TileTag> tHash = new(_tileTags);
             HashSet<TileTag> targetHash = new(targetTile.Tags);
             if(tHash.Overlaps(targetHash))
             {

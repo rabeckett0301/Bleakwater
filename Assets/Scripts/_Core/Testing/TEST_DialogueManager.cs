@@ -53,4 +53,14 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
     {
         this.gameObject.SetActive(false);
     }
+
+    public void SubscribeOnOpen()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SubscribeOnClose()
+    {
+        throw new NotImplementedException();
+    }
 }

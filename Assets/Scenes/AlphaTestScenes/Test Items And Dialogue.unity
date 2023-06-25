@@ -555,6 +555,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &538832025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538832027}
+  - component: {fileID: 538832026}
+  m_Layer: 0
+  m_Name: InventoryView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &538832026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538832025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbb0b616f73f0c4db53aaa8d983c2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetView: {fileID: 1936044677}
+  slots: []
+  TargetGameObject: {fileID: 1831532093}
+--- !u!4 &538832027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538832025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.75, y: 0, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546152012
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +947,7 @@ GameObject:
   - component: {fileID: 887134331}
   - component: {fileID: 887134330}
   - component: {fileID: 887134333}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1264,9 +1311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cb2469dd74a354492d4987c93ee16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoardManager: {fileID: 2003673428}
-  Loot:
-    tileTags: 01000000
+  _loot:
+    _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    _tileTags: 01000000
 --- !u!65 &1545196389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1444,6 +1491,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1936044677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1936044677, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
+  m_PrefabInstance: {fileID: 5919629713233567002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2003673426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,30 +1844,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8982536653809910595, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8982536654559396454, guid: 23ddb1efcd85e53458735b569770da0c, type: 3}
       propertyPath: m_Name
       value: Main UI
