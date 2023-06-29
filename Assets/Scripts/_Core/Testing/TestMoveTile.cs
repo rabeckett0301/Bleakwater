@@ -19,7 +19,6 @@ namespace Bleakwater
 
             ct.MovePawn(character, targetTile.GetComponent<ITile>());
             return true;
-
         }
 
         public override IEnumerable<TileTag> Tags => tileTags;

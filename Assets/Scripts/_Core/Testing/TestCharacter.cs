@@ -17,9 +17,17 @@ namespace Bleakwater
         public IInventory<IKeyItem> KeyItemInventory => _keyItemInventory;
 
         public int ActionPoints;
+        public int Health;
+
+        public int Strength;
+        public int Agility;
+        public int Wisdom;
+        public int Focus;
+        public int Desire;
+        public int Temperance;
+
         [SerializeField]
         private TEST_DialogueManager _dialogueManager;
-
 
         private ITileGraph _tileGraph;
 
