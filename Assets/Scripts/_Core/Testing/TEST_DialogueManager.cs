@@ -15,6 +15,11 @@ public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
         this.gameObject.SetActive(false);
     }
 
+    public void Draw(string Title, string Class, string Location)
+    {
+
+    }
+
     public void Write(string text)
     {
         this.gameObject.SetActive(true);
