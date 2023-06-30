@@ -27,7 +27,7 @@ namespace Bleakwater
         public int Temperance;
 
         [SerializeField]
-        private TEST_DialogueManager _dialogueManager;
+        private UI_TileManager _dialogueManager;
 
         private ITileGraph _tileGraph;
 

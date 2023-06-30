@@ -7,15 +7,22 @@ using UnityEngine;
 
 public class TEST_DialogueManager : MonoBehaviour, IDialogueManager
 {
+    public GameObject DialoguePanel;
+    public GameObject EventPanel;
+
     private TMP_Text Text;
 
     private void Start()
     {
-        Text = this.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         this.gameObject.SetActive(false);
     }
 
-    public void Draw(string Title, string Class, string Location)
+    public void Draw_NPC(string Title, string Class, string Location, Sprite Portrait)
+    {
+
+    }
+
+    public void Draw_Event(string Title, Sprite Portrait, string Description, string Effect)
     {
 
     }

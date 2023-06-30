@@ -7,7 +7,9 @@ namespace Bleakwater
 {
     public interface IDialogueManager
     {
-        public void Draw(string Title, string Class, string Location);
+        public void Draw_NPC(string Title, string Class, string Location, Sprite Portrait);
+
+        public void Draw_Event(string Title, Sprite Portrait, string Description, string Effect);
 
         //writing should open, clear, and display the new text for the dialogue box.
         public void Write(string text);

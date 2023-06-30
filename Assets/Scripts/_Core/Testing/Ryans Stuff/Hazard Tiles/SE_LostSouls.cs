@@ -1,17 +1,14 @@
 using Bleakwater;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCTile_ContextGiver : PawnSpecificTile<ICharacter>
+public class SE_LostSouls : PawnSpecificTile<TestCharacter>
 {
-    public string Name;
-    public string Type;
-    public string Location;
-
-    public Image Portrait;
+    public string Title;
+    public Sprite Portrait;
+    public string Description;
+    public string Effect;
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
@@ -27,10 +24,11 @@ public class NPCTile_ContextGiver : PawnSpecificTile<ICharacter>
         throw new System.NotImplementedException();
     }
 
-    protected override bool Activate(ICharacter user)
+    protected override bool Activate(TestCharacter user)
     {
-        user.DialogueManager.Draw(Name, Type, Location);
+        user.DialogueManager.Draw_Event(Title, Portrait, Description, Effect);
 
+        user.ActionPoints -= 10;
         return true;
     }
 }
