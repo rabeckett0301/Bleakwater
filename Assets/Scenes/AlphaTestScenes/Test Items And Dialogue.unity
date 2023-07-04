@@ -665,7 +665,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2780,6 +2780,30 @@ PrefabInstance:
       propertyPath: Portrait
       value: 
       objectReference: {fileID: 21300000, guid: be69767a5f82437489501752fed3e04a, type: 3}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Lines.Array.data[0]
+      value: Are you from the Royal Corps? No...No of course not...
+      objectReference: {fileID: 0}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Option_1_Lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Option_2_Lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Option_1_Lines.Array.data[0]
+      value: Where is everyone?
+      objectReference: {fileID: 0}
+    - target: {fileID: 40351586208322705, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
+      propertyPath: Option_2_Lines.Array.data[0]
+      value: Goodbye
+      objectReference: {fileID: 0}
     - target: {fileID: 40351586208322731, guid: 2701174a571cd4e4191f9420a224bc83, type: 3}
       propertyPath: m_Name
       value: NPC Tile
@@ -3544,8 +3568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialoguePanel: {fileID: 3354863563691360799}
   EventPanel: {fileID: 1788719185}
-  Duration: 350
-  newTime: 0
+  Duration: 250
 --- !u!1 &3354863563244225665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,8 +3634,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3678,8 +3701,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 550, y: 500}
-  m_SizeDelta: {x: 100, y: 25}
+  m_AnchoredPosition: {x: 1050, y: 500}
+  m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3354863563691360796
 MonoBehaviour:
@@ -4163,8 +4186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -550, y: 0}
-  m_SizeDelta: {x: 100, y: 25}
+  m_AnchoredPosition: {x: -945, y: 0}
+  m_SizeDelta: {x: 200, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4162874752219369690
 MonoBehaviour:

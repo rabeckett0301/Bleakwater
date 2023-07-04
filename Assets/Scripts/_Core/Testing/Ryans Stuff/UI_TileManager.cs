@@ -12,7 +12,6 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     public Transform EventPanel;
 
     public float Duration;
-    public float newTime;
 
     private void Start()
     {
@@ -51,9 +50,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     {
         for (int i = 0; i < DialoguePanel.transform.childCount - 4; i++)
         {
-            Debug.Log(i);
-
-            newTime = 0;
+            float newTime = 0;
 
             while (newTime < Duration)
             {
@@ -77,15 +74,65 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     {
         EventPanel.gameObject.SetActive(true);
 
+        EventPanel.GetChild(0).gameObject.GetComponent<TMP_Text>().color = new Color(1, 1, 1, 0);
         EventPanel.GetChild(0).gameObject.GetComponent<TMP_Text>().text = Title;
+
+        EventPanel.GetChild(1).gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         EventPanel.GetChild(1).GetComponent<Image>().sprite = Portrait;
+
+        EventPanel.GetChild(2).gameObject.GetComponent<TMP_Text>().color = new Color(1, 1, 1, 0);
         EventPanel.GetChild(2).gameObject.GetComponent<TMP_Text>().text = Description;
+
+        EventPanel.GetChild(0).gameObject.GetComponent<TMP_Text>().color = new Color(1, 1, 1, 0);
         EventPanel.GetChild(3).gameObject.GetComponent<TMP_Text>().text = Effect;
+
+        StartCoroutine(this.Present_Event());
+    }
+
+    private IEnumerator Present_Event()
+    {
+        for (int i = 0; i < EventPanel.transform.childCount; i++)
+        {
+            float newTime = 0;
+
+            while (newTime < Duration)
+            {
+                if (EventPanel.GetChild(i).gameObject.GetComponent<TMP_Text>())
+                {
+                    EventPanel.GetChild(i).gameObject.GetComponent<TMP_Text>().color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), newTime / Duration);
+                }
+                else
+                {
+                    EventPanel.GetChild(i).gameObject.GetComponent<Image>().color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), newTime / Duration);
+                }
+
+                newTime += Time.time;
+                yield return null;
+            }
+        }
+        yield return null;
     }
 
     public void Write(string text)
     {
-        throw new NotImplementedException();
+        string newText = text;
+
+        StartCoroutine(this.StringBuilder(newText));
+    }
+
+    private IEnumerator StringBuilder(string Line)
+    {
+        TMP_Text NPCText = DialoguePanel.GetChild(3).gameObject.GetComponent<TMP_Text>();
+        NPCText.text = "'";
+
+        for (int i = 0; i < Line.Length; i++)
+        {
+            NPCText.text += Line[i];
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        NPCText.text += "'";
+        yield return null;
     }
 
     public void DisplayOption(string text, Action option)
