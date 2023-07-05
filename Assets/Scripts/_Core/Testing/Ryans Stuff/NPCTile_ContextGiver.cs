@@ -17,7 +17,9 @@ public class NPCTile_ContextGiver : PawnSpecificTile<ICharacter>
     public List<string> Option_1_Lines = new List<string>();
     public List<string> Option_2_Lines = new List<string>();
 
-    private int CurrentIndex;
+    public int CurrentIndex;
+
+    private UI_TileManager TM;
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
@@ -38,22 +40,45 @@ public class NPCTile_ContextGiver : PawnSpecificTile<ICharacter>
         CurrentIndex = 0;
         user.DialogueManager.Draw_NPC(Name, Type, Location, Portrait);
         user.DialogueManager.Write(Lines[CurrentIndex]);
+
+        if (CurrentIndex < Lines.Count - 1)
+        {
+            user.DialogueManager.DisplayOption(Option_1_Lines[CurrentIndex], () => Respond(user));
+            //user.DialogueManager.DisplayOption(Option_2_Lines[CurrentIndex], () => Respond(user));
+        }
+
+        user.DialogueManager.DisplayOption(Option_2_Lines[CurrentIndex], () => EndDialogue(user));
+
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+        CurrentIndex++;
         return true;
     }
 
     public void Respond(ICharacter character)
     {
+        //CurrentIndex++;
+
+        character.DialogueManager.Write(Lines[CurrentIndex]);
+
         if (CurrentIndex < Lines.Count - 1)
         {
-            character.DialogueManager.DisplayOption(Option_1_Lines[CurrentIndex], () => Activate(character));
-            CurrentIndex++;
+            character.DialogueManager.DisplayOption(Option_1_Lines[CurrentIndex], () => Respond(character));
+        }
+
+        TM = GameObject.Find("Main UI").GetComponent<UI_TileManager>();
+        TM.DisplayedOptions = 1;
+        character.DialogueManager.DisplayOption(Option_2_Lines[CurrentIndex], () => EndDialogue(character));
+        CurrentIndex++;
+
+        /*if (CurrentIndex < Lines.Count - 1)
+        {
+
         }
         else
         {
             character.DialogueManager.DisplayOption(Option_1_Lines[CurrentIndex], () => EndDialogue(character));
-        }
+        }*/
     }
 
     public void EndDialogue(ICharacter character)
