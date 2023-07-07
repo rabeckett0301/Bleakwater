@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PawnSpecificUseableItem<TPawn> : IUseableItem where TPawn : IPawn
+public abstract class PawnSpecificUseableItem<TPawn> : ScriptableObject, IUseableItem where TPawn : IPawn
 {
     public abstract Sprite Icon { get; }
 
@@ -12,7 +12,7 @@ public abstract class PawnSpecificUseableItem<TPawn> : IUseableItem where TPawn 
     {
         if (user is TPawn)
         {
-            return Activate(user);
+            return Activate((TPawn)user);
         }
         else
         {
@@ -20,6 +20,7 @@ public abstract class PawnSpecificUseableItem<TPawn> : IUseableItem where TPawn 
         }
     }
     protected abstract bool Activate(TPawn user);
+
     protected virtual bool ActivateOnNonSpecificPawn(IPawn user)
     {
         Debug.Log("Pawn not of type " + typeof(TPawn).Name);

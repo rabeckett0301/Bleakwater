@@ -83,6 +83,6 @@ public class NPCTile_ContextGiver : PawnSpecificTile<ICharacter>
 
     public void EndDialogue(ICharacter character)
     {
-        character.DialogueManager.Close();
+        character.DialogueManager.Close_NPC();
     }
 }

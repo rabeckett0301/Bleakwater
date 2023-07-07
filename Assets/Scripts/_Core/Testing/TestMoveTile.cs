@@ -11,14 +11,26 @@ namespace Bleakwater
         GameObject targetTile;
         [SerializeField]
         List<TileTag> tileTags;
+
+        [SerializeField]
+        private ITEM_Key Key;
+
         protected override bool Activate(TestCharacter character)
         {
-            IPawnTracker<ICharacter> ct = GetComponentInParent<IGameMap>().GetCharacterTracker();
+            if (!character.KeyItemInventory.GetItems().Contains(Key))
+            {
+                IPawnTracker<ICharacter> ct = GetComponentInParent<IGameMap>().GetCharacterTracker();
 
-            character.ActionPoints++;
+                character.ActionPoints++;
+                character.Health -= 50;
 
-            ct.MovePawn(character, targetTile.GetComponent<ITile>());
-            return true;
+                ct.MovePawn(character, targetTile.GetComponent<ITile>());
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public override IEnumerable<TileTag> Tags => tileTags;
@@ -34,7 +46,5 @@ namespace Bleakwater
         {
             throw new System.NotImplementedException();
         }
-
-
     }
 }

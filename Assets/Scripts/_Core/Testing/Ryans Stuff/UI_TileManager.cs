@@ -10,6 +10,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
 {
     public Transform DialoguePanel;
     public Transform EventPanel;
+    public Transform ItemPanel;
 
     public Button Button1;
     public Button Button2;
@@ -22,12 +23,14 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     {
         DialoguePanel = this.transform.GetChild(1);
         EventPanel = this.transform.GetChild(2);
+        ItemPanel = this.transform.GetChild(3);
 
         Button1 = DialoguePanel.GetChild(4).gameObject.GetComponent<Button>();
         Button2 = DialoguePanel.GetChild(5).gameObject.GetComponent<Button>();
 
         DialoguePanel.gameObject.SetActive(false);
         EventPanel.gameObject.SetActive(false);
+        ItemPanel.gameObject.SetActive(false);
     }
 
     public void SubscribeOnOpen()
@@ -192,9 +195,77 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         option.Invoke();
     }
 
-    public void Close()
+    public void Draw_Item(string Title, Sprite Portrait, string Description, string Effect)
     {
-        this.gameObject.SetActive(false);
+        ItemPanel.gameObject.SetActive(true);
+
+        ItemPanel.GetChild(1).gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        ItemPanel.GetChild(1).GetComponent<Image>().sprite = Portrait;
+
+        ItemPanel.GetChild(2).gameObject.GetComponent<TMP_Text>().color = new Color(1, 1, 1, 0);
+        ItemPanel.GetChild(2).GetComponent<TMP_Text>().text = Title;
+
+        ItemPanel.GetChild(3).gameObject.GetComponent<TMP_Text>().color = new Color(1, 1, 1, 0);
+        ItemPanel.GetChild(3).gameObject.GetComponent<TMP_Text>().text = Description;
+
+        ItemPanel.GetChild(4).gameObject.GetComponent<TMP_Text>().color = new Color(0, 1, 0, 0);
+        ItemPanel.GetChild(4).gameObject.GetComponent<TMP_Text>().text = Effect;
+
+        ItemPanel.GetChild(5).gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 0);
+
+        StartCoroutine(this.Present_Item());
+    }
+
+    public IEnumerator Present_Item()
+    {
+        for (int i = 1; i < ItemPanel.transform.childCount; i++)
+        {
+            float newTime = 0;
+
+            while (newTime < Duration)
+            {
+                if (ItemPanel.GetChild(i).gameObject.GetComponent<TMP_Text>())
+                {
+                    if (i == 4)
+                    {
+                        ItemPanel.GetChild(i).gameObject.GetComponent<TMP_Text>().color = Color.Lerp(new Color(1, 0, 0, 0), new Color(0, 1, 0, 1), newTime / Duration);
+                    }
+                    else
+                    {
+                        ItemPanel.GetChild(i).gameObject.GetComponent<TMP_Text>().color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), newTime / Duration);
+                    }
+                }
+                else
+                {
+                    ItemPanel.GetChild(i).gameObject.GetComponent<Image>().color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), newTime / Duration);
+                }
+
+                newTime += Time.time;
+                yield return null;
+            }
+        }
+
+        yield return null;
+    }
+
+    public void Draw_Pickup()
+    {
+
+    }
+
+    public void Close_NPC()
+    {
+        DialoguePanel.gameObject.SetActive(false);
+    }
+
+    public void Close_Event()
+    {
+        EventPanel.gameObject.SetActive(false);
+    }
+
+    public void Close_Item()
+    {
+        ItemPanel.gameObject.SetActive(false);
     }
 
     public void SubscribeOnClose()

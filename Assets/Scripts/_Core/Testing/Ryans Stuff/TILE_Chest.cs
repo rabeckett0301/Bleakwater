@@ -3,17 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TEST_ItemTile : PawnSpecificTile<ICharacter>
+public class TILE_Chest : PawnSpecificTile<ICharacter>
 {
-    [SerializeField]
-    public ITEM_Key _loot;
-
-    protected override bool Activate(ICharacter character)
-    {
-        character.DialogueManager.Draw_Item(_loot.name, _loot.Icon, _loot.Description, _loot.Effect);
-        character.KeyItemInventory.AddItem(_loot);
-        return true;
-    }
+    public Elixirs_Template loot;
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
@@ -27,5 +19,11 @@ public class TEST_ItemTile : PawnSpecificTile<ICharacter>
     public override void Show()
     {
         throw new System.NotImplementedException();
+    }
+
+    protected override bool Activate(ICharacter user)
+    {
+        user.UseableItemInventory.AddItem(loot);
+        return true;
     }
 }

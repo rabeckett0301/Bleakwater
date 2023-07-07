@@ -40,7 +40,7 @@ public class TEST_NpcTile : PawnSpecificTile<ICharacter>
     public void EndDialogue(ICharacter character)
     {
         Debug.Log("Ending talking");
-        character.DialogueManager.Close();
+        character.DialogueManager.Close_NPC();
     }
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();
