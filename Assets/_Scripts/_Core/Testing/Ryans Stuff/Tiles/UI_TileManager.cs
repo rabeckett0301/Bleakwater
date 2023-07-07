@@ -12,6 +12,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     public Transform EventPanel;
     public Transform ItemPanel;
     public Transform InventoryPanel;
+    public Transform CharacterPanel;
 
     public Button Button1;
     public Button Button2;
@@ -26,6 +27,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         EventPanel = this.transform.GetChild(2);
         ItemPanel = this.transform.GetChild(3);
         InventoryPanel = this.transform.GetChild(4);
+        CharacterPanel = this.transform.GetChild(6);
 
         Button1 = DialoguePanel.GetChild(4).gameObject.GetComponent<Button>();
         Button2 = DialoguePanel.GetChild(5).gameObject.GetComponent<Button>();
@@ -34,6 +36,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         EventPanel.gameObject.SetActive(false);
         ItemPanel.gameObject.SetActive(false);
         InventoryPanel.gameObject.SetActive(false);
+        CharacterPanel.gameObject.SetActive(false);
     }
 
     public void SubscribeOnOpen()
@@ -271,15 +274,15 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         ItemPanel.gameObject.SetActive(false);
     }
 
-    public void ShowInventory()
+    public void ShowHotbarMenu(Transform Panel)
     {
-        if (InventoryPanel.gameObject.activeSelf)
+        if (Panel.gameObject.activeSelf)
         {
-            InventoryPanel.gameObject.SetActive(false);
+            Panel.gameObject.SetActive(false);
         }
         else
         {
-            InventoryPanel.gameObject.SetActive(true);
+            Panel.gameObject.SetActive(true);
         }
     }
 

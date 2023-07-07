@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class HazardTile : PawnSpecificTile<TestCharacter>
 {
-    public string Title;
     public Sprite Portrait;
     public string Description;
 
@@ -31,7 +30,7 @@ public class HazardTile : PawnSpecificTile<TestCharacter>
 
     protected override bool Activate(TestCharacter user)
     {
-        user.DialogueManager.Draw_Event(Title, Portrait, Description, Effect);
+        user.DialogueManager.Draw_Event(this.gameObject.name, Portrait, Description, Effect);
 
         Debug.Log("Activating Effect: " + this.gameObject.name +  "!");
 
