@@ -11,6 +11,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     public Transform DialoguePanel;
     public Transform EventPanel;
     public Transform ItemPanel;
+    public Transform InventoryPanel;
 
     public Button Button1;
     public Button Button2;
@@ -24,6 +25,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         DialoguePanel = this.transform.GetChild(1);
         EventPanel = this.transform.GetChild(2);
         ItemPanel = this.transform.GetChild(3);
+        InventoryPanel = this.transform.GetChild(4);
 
         Button1 = DialoguePanel.GetChild(4).gameObject.GetComponent<Button>();
         Button2 = DialoguePanel.GetChild(5).gameObject.GetComponent<Button>();
@@ -31,6 +33,7 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         DialoguePanel.gameObject.SetActive(false);
         EventPanel.gameObject.SetActive(false);
         ItemPanel.gameObject.SetActive(false);
+        InventoryPanel.gameObject.SetActive(false);
     }
 
     public void SubscribeOnOpen()
@@ -266,6 +269,18 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     public void Close_Item()
     {
         ItemPanel.gameObject.SetActive(false);
+    }
+
+    public void ShowInventory()
+    {
+        if (InventoryPanel.gameObject.activeSelf)
+        {
+            InventoryPanel.gameObject.SetActive(false);
+        }
+        else
+        {
+            InventoryPanel.gameObject.SetActive(true);
+        }
     }
 
     public void SubscribeOnClose()

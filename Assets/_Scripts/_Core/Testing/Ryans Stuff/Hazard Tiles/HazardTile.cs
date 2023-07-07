@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SE_LostSouls : PawnSpecificTile<TestCharacter>
+public class HazardTile : PawnSpecificTile<TestCharacter>
 {
     public string Title;
     public Sprite Portrait;
     public string Description;
+
+    [TextArea]
     public string Effect;
+
+    public int HealthEffect;
+    public int APEffect;
 
     public override IEnumerable<TileTag> Tags => new List<TileTag>();
 
@@ -28,7 +33,11 @@ public class SE_LostSouls : PawnSpecificTile<TestCharacter>
     {
         user.DialogueManager.Draw_Event(Title, Portrait, Description, Effect);
 
-        user.ActionPoints -= 10;
+        Debug.Log("Activating Effect: " + this.gameObject.name +  "!");
+
+        user.ActionPoints -= APEffect;
+        user.Health -= HealthEffect;
+
         return true;
     }
 }

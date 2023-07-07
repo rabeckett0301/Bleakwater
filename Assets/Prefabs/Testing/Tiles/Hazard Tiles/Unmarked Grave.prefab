@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5926179649971656547
+--- !u!1 &6709318325205298610
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5926179649971656556}
-  - component: {fileID: 5926179649971656552}
-  - component: {fileID: 5926179649971656559}
-  - component: {fileID: 5926179649971656558}
-  - component: {fileID: 5926179649971656553}
+  - component: {fileID: 6709318325205298611}
+  - component: {fileID: 6709318325205298615}
+  - component: {fileID: 6709318325205298614}
+  - component: {fileID: 6709318325205298609}
+  - component: {fileID: 6709318325205298612}
   m_Layer: 6
-  m_Name: Default Tile
+  m_Name: Unmarked Grave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5926179649971656556
+--- !u!4 &6709318325205298611
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926179649971656547}
+  m_GameObject: {fileID: 6709318325205298610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5926179649971656552
+--- !u!33 &6709318325205298615
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926179649971656547}
+  m_GameObject: {fileID: 6709318325205298610}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5926179649971656559
+--- !u!23 &6709318325205298614
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926179649971656547}
+  m_GameObject: {fileID: 6709318325205298610}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ad0df90acd0a8814788d2bdc02329ecc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,28 +85,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5926179649971656558
+--- !u!65 &6709318325205298609
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926179649971656547}
+  m_GameObject: {fileID: 6709318325205298610}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5926179649971656553
+--- !u!114 &6709318325205298612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5926179649971656547}
+  m_GameObject: {fileID: 6709318325205298610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0fa055f048d9ae48800f502651b799a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d2a4933142cac14e989d96ef15ea2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Title: Unmarked Grave
+  Portrait: {fileID: 21300000, guid: c2fbb51aa96147043adca39e89a8fa53, type: 3}
+  Description: A forgotten corpse halts you with malice.
+  Effect: '-10 Health
+
+    -3 Action Points'
+  HealthEffect: 10
+  APEffect: 3
