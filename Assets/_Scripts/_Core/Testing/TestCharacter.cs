@@ -27,6 +27,9 @@ namespace Bleakwater
         public int Temperance;
 
         [SerializeField]
+        private float TileSpacing;
+
+        [SerializeField]
         private UI_TileManager _dialogueManager;
 
         private ITileGraph _tileGraph;
@@ -39,15 +42,19 @@ namespace Bleakwater
         IInventory<IUseableItem> _useableItemInventory = new BasicInventory<IUseableItem>();
         IInventory<IKeyItem> _keyItemInventory = new BasicInventory<IKeyItem>();
 
-
+        bool moving = false;
 
         private void Start()
         {
-
             _tileGraph = ServiceLocator.GameMap.GetTileGraph();
             ServiceLocator.GameMap.GetCharacterTracker().AddPawn(_startTile, this);
+
+            if (!_dialogueManager.gameObject.activeSelf)
+            {
+                _dialogueManager.gameObject.SetActive(true);
+            }
         }
-        bool moving = false;
+
         private void Update()
         {
             UpdateCharacterTile();
@@ -59,7 +66,7 @@ namespace Bleakwater
             ITile currentTile = ServiceLocator.GameMap.GetCharacterTracker().GetTileByPawn(this);
             if (currentTile != _targetTile && moving == false)
             {
-                transform.position = currentTile.Transform.position + Vector3.up * 1.5f;
+                transform.position = currentTile.Transform.position + Vector3.up * TileSpacing;
                 _targetTile = currentTile;
             }
         }
@@ -74,7 +81,7 @@ namespace Bleakwater
             
             if (path.Count > 0)
             {
-                Vector3 moveDir = (path[0].Transform.position + Vector3.up * 1.5f) - transform.position;
+                Vector3 moveDir = (path[0].Transform.position + Vector3.up * TileSpacing) - transform.position;
                 if (moveDir.magnitude < Time.deltaTime * speed)
                 {
                     ActionPoints--;

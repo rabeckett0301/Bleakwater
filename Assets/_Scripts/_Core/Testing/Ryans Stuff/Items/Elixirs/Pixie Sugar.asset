@@ -15,3 +15,5 @@ MonoBehaviour:
   HealthEffect: 150
   APEffect: 0
   icon: {fileID: 21300000, guid: afa2fe5fe6a32e7438ef46301ec4b5f0, type: 3}
+  Description: A fine and smooth golden sand that shimmers under light. Only rarely
+    given as gifts from a fairy to a close ally. Greatly heals wounds.

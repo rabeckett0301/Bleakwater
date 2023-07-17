@@ -30,7 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: -0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8291768421511114467}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 1356312649159459081, guid: 10ca00209f672224cb87a6c0f9df259b, type: 3}
 --- !u!23 &8291768421511114464
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9fb8e95fcb7cff945a7285ffd9a01a20, type: 2}
+  - {fileID: 2100000, guid: 870730060f25166409de86e6f6f44004, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   Name: Lost Maiden
   Type: Serf
   Location: Bleakwater
-  Portrait: {fileID: 21300000, guid: be69767a5f82437489501752fed3e04a, type: 3}
+  Portrait: {fileID: 21300000, guid: 02677c849dc82a14fa149c73aff77766, type: 3}
   Lines:
   - Are you from the Royal Corps? No...No of course not...
   - They all left. Fled from the Capital and abandoned us. Their serfs. Their servants.

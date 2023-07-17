@@ -11,6 +11,10 @@ namespace Bleakwater
         [SerializeField]
         GameObject targetBoardManager;
         IGameMap boardManager;
+
+        //THIS SHOULD NOT BE HERE BE SURE TO DELETE!!!
+        public Transform UIObj;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +26,11 @@ namespace Bleakwater
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            ///////////////////////////////////////////
+            //REFACTOR THIS LINE AS SOON AS POSSIBLE//
+            //////////////////////////////////////////
+
+            if (Input.GetMouseButtonDown(0) && !UIObj.GetChild(1).gameObject.activeSelf && !UIObj.GetChild(2).gameObject.activeSelf && !UIObj.GetChild(3).gameObject.activeSelf)
             {
                 Ray selectRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 

@@ -14,6 +14,8 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
     public Transform InventoryPanel;
     public Transform CharacterPanel;
 
+    private Transform PauseMenu;
+
     public Button Button1;
     public Button Button2;
 
@@ -29,6 +31,8 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         InventoryPanel = this.transform.GetChild(4);
         CharacterPanel = this.transform.GetChild(6);
 
+        PauseMenu = this.transform.GetChild(7);
+
         Button1 = DialoguePanel.GetChild(4).gameObject.GetComponent<Button>();
         Button2 = DialoguePanel.GetChild(5).gameObject.GetComponent<Button>();
 
@@ -37,6 +41,22 @@ public class UI_TileManager : MonoBehaviour, IDialogueManager
         ItemPanel.gameObject.SetActive(false);
         InventoryPanel.gameObject.SetActive(false);
         CharacterPanel.gameObject.SetActive(false);
+        PauseMenu.gameObject.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!PauseMenu.gameObject.activeSelf)
+            {
+                PauseMenu.gameObject.SetActive(true);
+            }
+            else
+            {
+                PauseMenu.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void SubscribeOnOpen()

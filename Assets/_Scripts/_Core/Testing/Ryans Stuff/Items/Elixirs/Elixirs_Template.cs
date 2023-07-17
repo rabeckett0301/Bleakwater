@@ -12,6 +12,8 @@ public class Elixirs_Template : PawnSpecificUseableItem<TestCharacter>
 
     public Sprite icon;
 
+    public string Description;
+
     public override Sprite Icon => icon;
 
     protected override bool Activate(TestCharacter user)
