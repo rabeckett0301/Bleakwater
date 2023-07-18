@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HazardTile : PawnSpecificTile<TestCharacter>
+[CreateAssetMenu(fileName = "New Hazard Tile", menuName = "Scriptable Objects/Tiles/New Hazard Tile", order = 1)]
+
+public class HazardTile_Template : PawnSpecificTile<TestCharacter>
 {
     public Sprite Portrait;
     public string Description;

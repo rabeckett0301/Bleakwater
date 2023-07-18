@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Bleakwater
 {
-    public abstract class PawnSpecificTile<TPawn> : MonoBehaviour, ITile where TPawn : IPawn
+    public abstract class PawnSpecificTile<TPawn> : ScriptableObject, ITile where TPawn : IPawn
     {
         public  abstract IEnumerable<TileTag> Tags { get; }
 
@@ -30,8 +30,5 @@ namespace Bleakwater
             Debug.Log("Pawn is not of type " + typeof(TPawn).Name);
             return false;
         }
-
-
-
     }
 }
