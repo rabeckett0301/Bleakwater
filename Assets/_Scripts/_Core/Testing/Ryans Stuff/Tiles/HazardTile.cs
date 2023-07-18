@@ -5,7 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Hazard Tile", menuName = "Scriptable Objects/Tiles/New Hazard Tile", order = 1)]
 
-public class HazardTile_Template : PawnSpecificTile<TestCharacter>
+public class HazardTile : PawnSpecificTile<TestCharacter>
 {
     public Sprite Portrait;
     public string Description;
