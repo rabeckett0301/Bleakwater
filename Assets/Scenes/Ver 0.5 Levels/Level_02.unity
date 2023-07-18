@@ -2701,16 +2701,16 @@ Transform:
   - {fileID: 87641331}
   - {fileID: 32115852}
   - {fileID: 1590733172}
-  - {fileID: 806351669}
   - {fileID: 2109132435}
   - {fileID: 802372415}
   - {fileID: 186430892}
+  - {fileID: 806351669}
   - {fileID: 1376251286}
   - {fileID: 1237133751}
   - {fileID: 1006872318}
   - {fileID: 1286148052}
-  - {fileID: 2143746874}
   - {fileID: 1305936777}
+  - {fileID: 2143746874}
   - {fileID: 323777218}
   - {fileID: 992022454}
   - {fileID: 988875338}
@@ -3291,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 1258871398}
     - target: {fileID: 4863283123347902204, guid: c98458d7eaafae648acf4de229ffc31b, type: 3}
       propertyPath: TileSpacing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4863283123347902204, guid: c98458d7eaafae648acf4de229ffc31b, type: 3}
       propertyPath: _dialogueManager
